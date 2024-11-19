@@ -83,11 +83,7 @@ O aplicativo utiliza **Firebase Auth** para autenticação de usuários e **Fire
 
 ## Contribuições
 
-1. Faça um fork deste repositório.
-2. Crie uma branch para a sua alteração (`git checkout -b feature/nome-da-feature`).
-3. Faça o commit das suas alterações (`git commit -am 'Adiciona nova funcionalidade'`).
-4. Envie para o repositório remoto (`git push origin feature/nome-da-feature`).
-5. Abra um Pull Request.
+
 
 ## Licença
 
