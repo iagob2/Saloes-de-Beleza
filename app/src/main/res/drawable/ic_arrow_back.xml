@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Estado pressionado -->
+    <item android:state_pressed="true" android:drawable="@color/color_pressed" />
+
+    <!-- Estado focado -->
+    <item android:state_focused="true" android:drawable="@color/color_focused" />
+
+    <!-- Estado habilitado -->
+    <item android:state_enabled="true" android:drawable="@color/color_enabled" />
+
+    <!-- Estado padrão -->
+    <item android:drawable="@color/color_default" />
+
+</selector>

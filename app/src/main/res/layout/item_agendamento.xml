@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Nome do Cliente -->
+    <TextView
+        android:id="@+id/tvNomeCliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome do Cliente"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!--  Data/Hora -->
+    <TextView
+        android:id="@+id/tvDataHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Serviço - Data e Hora"
+        android:textSize="14sp" />
+
+    <!-- Status -->
+    <TextView
+        android:id="@+id/tvServiço"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Serviço: fique sem ideia"
+        android:textSize="14sp"
+        android:textColor="@color/primaryColor" />
+</LinearLayout>
