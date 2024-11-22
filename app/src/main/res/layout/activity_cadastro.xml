@@ -1,232 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.CadastroActivity">
+    android:fillViewport="true">
 
-
-    <!-- Nome Completo -->
-
-    <!-- E-mail -->
-
-    <!-- Senha -->
-
-
-    <!-- Botão para Entrar -->
-
-    <!-- Botão para Cadastrar -->
-
-    <EditText
-        android:id="@+id/etNomeCompleto"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:hint="Nome Completo"
-        android:inputType="textPersonName"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNomeCompleto" />
-
-    <EditText
-        android:id="@+id/etSenha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="Senha"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
-
-
-    <!-- Tipo de Usuário (RadioButtons para Cliente ou Salão) -->
-
-
-    <RadioGroup
-        android:id="@+id/rgTipoUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSenha">
-
-        <RadioButton
-            android:id="@+id/rbCliente"
-            android:layout_width="109dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:checked="true"
-            android:text="Cliente" />
-
-        <RadioButton
-            android:id="@+id/rbSalao"
-            android:layout_width="119dp"
-            android:layout_height="wrap_content"
-            android:text="Salão" />
-    </RadioGroup>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/rgTipoUsuario"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".views.CadastroActivity">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:text="Horário de Funcionamento:" />
+            android:id="@+id/txt_cadastro"
+            style="@style/h1"
+            android:layout_marginTop="15dp"
+            android:text="@string/text_cadastro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/containerComponets2"
+            style="@style/containerComponets"
+            android:layout_width="371dp"
+            android:layout_height="615dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_cadastro" />
+
+        <EditText
+            android:id="@+id/edit_nome"
+            style="@style/Edit_text"
+            android:layout_marginTop="20dp"
+            android:drawableRight="@drawable/rename_outline"
+            android:hint="Nome completo:"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
+            app:layout_constraintHorizontal_bias="0.725"
+            app:layout_constraintStart_toStartOf="@+id/containerComponets2"
+            app:layout_constraintTop_toTopOf="@+id/containerComponets2" />
+
+        <EditText
+            android:id="@+id/edit_email_cad"
+            style="@style/Edit_text"
+            android:drawableRight="@drawable/ic_email"
+            android:hint="Email:"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
+            app:layout_constraintStart_toStartOf="@+id/containerComponets2"
+            app:layout_constraintTop_toBottomOf="@+id/edit_nome" />
+
+        <EditText
+            android:id="@+id/edit_senha_cad"
+            style="@style/Edit_text"
+            android:drawableRight="@drawable/baseline_remove_red_eye_24"
+            android:hint="Senha:"
+            android:inputType="numberPassword"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
+            app:layout_constraintStart_toStartOf="@+id/containerComponets2"
+            app:layout_constraintTop_toBottomOf="@+id/edit_email_cad" />
+
+        <RadioGroup
+            android:id="@+id/rgTipoUsuario"
+            style="@style/RadioGroupStyle"
+            android:layout_width="299dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
+            app:layout_constraintStart_toStartOf="@+id/containerComponets2"
+            app:layout_constraintTop_toBottomOf="@+id/edit_senha_cad">
+
+            <RadioButton
+                android:id="@+id/rbCliente"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="Cliente"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/rbSalao"
+                style="@style/RadioButtonStyle"
+                android:text="Salão"
+                tools:ignore="TouchTargetSizeCheck" />
+        </RadioGroup>
 
         <EditText
             android:id="@+id/etHorarioFuncionamento"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Ex: 9h às 18h"
-            android:padding="12dp" />
-    </LinearLayout>
+            style="@style/Edit_text"
+            android:drawableRight="@drawable/schedule"
+            android:hint="Horário de Funcionamento:"
+            android:inputType="time"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
+            app:layout_constraintStart_toStartOf="@+id/containerComponets2"
+            app:layout_constraintTop_toBottomOf="@+id/rgTipoUsuario" />
 
-    <TextView
-        android:id="@+id/text_dias_funciomento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Dias de Funcionamento:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        <EditText
+            android:id="@+id/edt_servico"
+            style="@style/Edit_text"
+            android:drawableRight="@drawable/service"
+            android:hint="Serviços Disponíveis:"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
+            app:layout_constraintStart_toStartOf="@+id/containerComponets2"
+            app:layout_constraintTop_toBottomOf="@+id/etHorarioFuncionamento" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="415dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="12dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_dias_funciomento">
 
-        <!-- Dias de Funcionamento -->
-
-        <CheckBox
-            android:id="@+id/cbSegunda"
+        <TextView
+            android:id="@+id/tvEscolhaDias"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Seg" />
+            android:layout_marginTop="15dp"
+            android:text="Escolha os dias da semana para funcionar :"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintStart_toStartOf="@+id/containerComponets2"
+            app:layout_constraintTop_toBottomOf="@+id/edt_servico" />
 
-        <CheckBox
-            android:id="@+id/cbTerca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ter" />
+        <!-- GridLayout para dias da semana -->
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayoutDiasSemana"
+            android:layout_width="274dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            app:columnCount="4"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintStart_toStartOf="@+id/containerComponets2"
+            app:layout_constraintTop_toBottomOf="@+id/tvEscolhaDias"
+            app:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/cbQuarta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quar" />
 
-        <CheckBox
-            android:id="@+id/cbQuinta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Qui" />
+            <!-- Checkboxes para os dias da semana -->
+            <CheckBox
+                android:id="@+id/cbSegunda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seg" />
 
-        <CheckBox
-            android:id="@+id/cbSexta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sex" />
+            <CheckBox
+                android:id="@+id/cbTerca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ter" />
 
-        <CheckBox
-            android:id="@+id/cbSabado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sáb" />
+            <CheckBox
+                android:id="@+id/cbQuarta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quar" />
 
-        <CheckBox
-            android:id="@+id/cbDomingo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dom" />
+            <CheckBox
+                android:id="@+id/cbQuinta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qui" />
 
-        <!-- Serviços Oferecidos -->
+            <CheckBox
+                android:id="@+id/cbSexta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sex" />
 
-    </LinearLayout>
+            <CheckBox
+                android:id="@+id/cbSabado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sáb" />
 
-    <EditText
-        android:id="@+id/etServicosOferecidos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="Serviços Oferecidos"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+            <CheckBox
+                android:id="@+id/cbDomingo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dom" />
+        </androidx.gridlayout.widget.GridLayout>
 
-    <Button
-        android:id="@+id/btnEntrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="340dp"
-        android:text="Entrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSenha" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_entrar"
+            style="@style/Button"
+            android:layout_marginTop="15dp"
+            android:text="cadastrar"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/containerComponets2"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayoutDiasSemana" />
 
-    <Button
-        android:id="@+id/btnCadastrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Cadastrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
+        <TextView
+            android:id="@+id/textView"
+            style="@style/txt_normal"
+            android:layout_marginTop="15dp"
+            android:text="voltar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/containerComponets2"
+            />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Bem-vindo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

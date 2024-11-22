@@ -3,7 +3,13 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
+
+
 android {
+    buildFeatures {
+        viewBinding = true
+    }
+
     namespace = "br.edu.fatecpg.aplicativodereservasparasalesdebeleza"
     compileSdk = 35
 
@@ -42,7 +48,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.gridlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }

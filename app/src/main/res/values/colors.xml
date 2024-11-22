@@ -10,5 +10,9 @@
     <color name="primaryColor">#3B3BD5</color>
     <color name="secondaryColor">#2196F3</color>
 
+    <color name="orange">#FFB344</color>
+    <color name="Pink">#FB528B</color>
+    <color name="Pink_light">#F899B9</color>
+
 
 </resources>

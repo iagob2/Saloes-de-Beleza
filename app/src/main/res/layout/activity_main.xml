@@ -1,232 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".views.MainActivity">
 
-
-    <!-- Nome Completo -->
-
-    <!-- E-mail -->
-
-    <!-- Senha -->
-
-
-    <!-- Botão para Entrar -->
-
-    <!-- Botão para Cadastrar -->
-
-    <EditText
-        android:id="@+id/etNomeCompleto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:hint="Nome Completo"
-        android:inputType="textPersonName"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNomeCompleto" />
-
-    <EditText
-        android:id="@+id/etSenha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="Senha"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
-
-
-    <!-- Tipo de Usuário (RadioButtons para Cliente ou Salão) -->
-
-
-    <RadioGroup
-        android:id="@+id/rgTipoUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSenha">
-
-        <RadioButton
-            android:id="@+id/rbCliente"
-            android:layout_width="109dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:checked="true"
-            android:text="Cliente" />
-
-        <RadioButton
-            android:id="@+id/rbSalao"
-            android:layout_width="119dp"
-            android:layout_height="wrap_content"
-            android:text="Salão" />
-    </RadioGroup>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/rgTipoUsuario"
-        tools:layout_editor_absoluteX="0dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:text="Horário de Funcionamento:" />
-
-        <EditText
-            android:id="@+id/etHorarioFuncionamento"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Ex: 9h às 18h"
-            android:padding="12dp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/text_dias_funciomento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Dias de Funcionamento:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="415dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="12dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_dias_funciomento">
-
-        <!-- Dias de Funcionamento -->
-
-        <CheckBox
-            android:id="@+id/cbSegunda"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Seg" />
-
-        <CheckBox
-            android:id="@+id/cbTerca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ter" />
-
-        <CheckBox
-            android:id="@+id/cbQuarta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quar" />
-
-        <CheckBox
-            android:id="@+id/cbQuinta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Qui" />
-
-        <CheckBox
-            android:id="@+id/cbSexta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sex" />
-
-        <CheckBox
-            android:id="@+id/cbSabado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sáb" />
-
-        <CheckBox
-            android:id="@+id/cbDomingo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dom" />
-
-        <!-- Serviços Oferecidos -->
-
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/etServicosOferecidos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="Serviços Oferecidos"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-    <Button
-        android:id="@+id/btnEntrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="340dp"
-        android:text="Entrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSenha" />
-
-    <Button
-        android:id="@+id/btnCadastrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Cadastrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="16dp"
-        android:text="Bem-vindo"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/containerComponets"
+        style="@style/containerComponets"
+        android:layout_marginTop="124dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <EditText
+        android:id="@+id/edit_email"
+        style="@style/Edit_text"
+        android:layout_marginTop="40dp"
+        android:drawableRight="@drawable/ic_email"
+        android:hint="Email:"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponets"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toStartOf="@+id/containerComponets"
+        app:layout_constraintTop_toTopOf="@+id/containerComponets" />
+
+    <EditText
+        android:id="@+id/edit_senha"
+        style="@style/Edit_text"
+        android:hint="Senha:"
+        android:drawableRight="@drawable/baseline_remove_red_eye_24"
+        android:inputType="numberPassword"
+        app:layout_constraintStart_toStartOf="@+id/containerComponets"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponets"
+        app:layout_constraintTop_toBottomOf="@+id/edit_email"
+
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_entrar"
+        style="@style/Button"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponets"
+        app:layout_constraintStart_toStartOf="@+id/containerComponets"
+        app:layout_constraintTop_toBottomOf="@+id/edit_senha"
+        android:text="@string/entrar"
+
+        />
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containerComponets"
+        android:visibility="invisible"
+        android:layout_margin="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txt_link_cadastro"
+        style="@style/txt_normal"
+        android:text="@string/link_cadastro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressbar"
+        app:layout_constraintVertical_bias="0.237" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
