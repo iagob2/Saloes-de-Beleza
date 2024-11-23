@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
     android:background="?attr/selectableItemBackground">
 
-    <!-- Nome do Salão -->
     <TextView
         android:id="@+id/tvNomeSalao"
         android:layout_width="match_parent"
@@ -17,7 +15,6 @@
         android:textStyle="bold"
         android:textColor="#000" />
 
-    <!-- Endereço/Localização (Opcional) -->
     <TextView
         android:id="@+id/tvEnderecoSalao"
         android:layout_width="match_parent"
@@ -27,7 +24,6 @@
         android:textColor="#555"
         android:visibility="gone" />
 
-    <!-- Nota/Avaliação -->
     <TextView
         android:id="@+id/tvNotaSalao"
         android:layout_width="match_parent"
@@ -35,5 +31,4 @@
         android:text="Nota: 4.5"
         android:textSize="14sp"
         android:textColor="#000" />
-
 </LinearLayout>

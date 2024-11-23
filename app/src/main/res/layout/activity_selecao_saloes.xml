@@ -10,12 +10,6 @@
     tools:ignore="ExtraText">
 
     <!-- Botão Voltar -->
-    <!-- Ícone de seta para trás -->
-       android:tint="#000"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- Título da Tela -->
     <ImageButton
         android:id="@+id/btnVoltar"
         android:layout_width="40dp"
@@ -23,10 +17,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Botão Voltar"
         android:src="@drawable/ic_arrow_back"
+        android:tint="#000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
 
+    <!-- Título da Tela -->
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="0dp"
@@ -36,10 +32,9 @@
         android:textColor="#000"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/btnVoltar"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnVoltar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- RecyclerView para lista de salões -->
     <androidx.recyclerview.widget.RecyclerView
@@ -47,7 +42,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scrollbars="vertical"
-        app:layout_constraintTop_toBottomOf="@id/btnVoltar"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
