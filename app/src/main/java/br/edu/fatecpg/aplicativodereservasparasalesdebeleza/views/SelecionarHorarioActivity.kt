@@ -1,5 +1,7 @@
 package br.edu.fatecpg.aplicativodereservasparasalesdebeleza.views
 
+import HistoricoServicoActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -30,7 +32,7 @@ class SelecionarHorarioActivity : AppCompatActivity() {
             binding.tvTitulo.text = "$nomeSalao - ${servico.nome}"
             binding.tvResumoAgendamento.text = "Resumo: ${Firebase.auth.currentUser?.email}, ${servico.preco}"
 
-            // Exibe horários disponíveis diretamente do objeto Servico
+
             val horariosDisponiveis = servico.horarios.map { "" to it }
 
             val horarioAdapter = HorarioAdapter(horariosDisponiveis) { (_, horario) ->
@@ -53,6 +55,11 @@ class SelecionarHorarioActivity : AppCompatActivity() {
             servico = servico
         )
         salvarAgendamento(agenda)
+
+        binding.btnAgenda.setOnClickListener {
+            val intent = Intent(this, HistoricoServicoActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun salvarAgendamento(agenda: Agenda) {
@@ -65,4 +72,5 @@ class SelecionarHorarioActivity : AppCompatActivity() {
                 Toast.makeText(this, "Erro ao salvar agendamento: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
 }

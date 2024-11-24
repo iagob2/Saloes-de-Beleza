@@ -1,0 +1,11 @@
+[33md9a3020[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Login e cadastro de cliente e salao
+[33me27e04c[m Implementação das telas de Seleção de Salões e Seleção de Serviço, e criação do arquivo Servico.kt no pacote dao
+[33mdf1bccf[m Resolvendo conflitos e finalizando merge
+[33m9995fd4[m Adicionando arquivos de configuração local ao .gitignore
+[33m4995cb5[m Adicionado Cliente.kt e Salao.kt; ajustes nos arquivos existentes
+[33m536ca8c[m layout_pag_loginEcadastro
+[33m7e565d4[m tela cadastro
+[33m466eaf8[m layout_0.1
+[33m06c757e[m Update README.md
+[33m2f23cee[m Update README.md
+[33m0302098[m Initial commit
