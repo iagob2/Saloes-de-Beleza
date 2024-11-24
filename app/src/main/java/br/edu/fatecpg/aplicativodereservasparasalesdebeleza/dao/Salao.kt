@@ -6,6 +6,6 @@ data class Salao(
     val horario: String,
     val diasDeFuncionamento: List<String>,
     val servicos: String,
-    val endereco: String,  // Adicionando a propriedade 'endereco'
-    val nota: Double // Adicionando a propriedade 'nota'
+    val endereco: String? = null,
+    val nota: Double? = null
 )

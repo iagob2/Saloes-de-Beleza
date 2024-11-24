@@ -94,6 +94,7 @@
             android:drawableRight="@drawable/schedule"
             android:hint="Horário de Funcionamento:"
             android:inputType="time"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
             app:layout_constraintStart_toStartOf="@+id/containerComponets2"
             app:layout_constraintTop_toBottomOf="@+id/rgTipoUsuario" />
@@ -104,6 +105,7 @@
             android:drawableRight="@drawable/service"
             android:hint="Serviços Disponíveis:"
             android:inputType="textPersonName"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
             app:layout_constraintStart_toStartOf="@+id/containerComponets2"
             app:layout_constraintTop_toBottomOf="@+id/etHorarioFuncionamento" />
@@ -116,6 +118,7 @@
             android:layout_marginTop="15dp"
             android:text="Escolha os dias da semana para funcionar :"
             android:textSize="16sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
             app:layout_constraintHorizontal_bias="0.555"
             app:layout_constraintStart_toStartOf="@+id/containerComponets2"
@@ -129,6 +132,7 @@
             android:layout_marginTop="15dp"
             android:gravity="center_vertical"
             app:columnCount="4"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/containerComponets2"
             app:layout_constraintHorizontal_bias="0.555"
             app:layout_constraintStart_toStartOf="@+id/containerComponets2"

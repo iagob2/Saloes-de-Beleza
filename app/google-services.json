@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "370627492740",
+    "project_id": "appsalao-d73e4",
+    "storage_bucket": "appsalao-d73e4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370627492740:android:51dc15b703400ce9a43bd1",
+        "android_client_info": {
+          "package_name": "br.edu.fatecpg.aplicativodereservasparasalesdebeleza"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8UgAXJiqcHZ0Ks6oPDwI0qUWWQ-lUB3Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
