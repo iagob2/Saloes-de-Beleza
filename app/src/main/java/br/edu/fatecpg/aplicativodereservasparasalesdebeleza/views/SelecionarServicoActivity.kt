@@ -1,70 +1,54 @@
 package br.edu.fatecpg.aplicativodereservasparasalesdebeleza.views
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.R
+import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.adapter.SelecionarServicoAdapter
 import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.dao.Servico
+import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.databinding.ActivitySelecionarServicoBinding
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class SelecionarServicoActivity : AppCompatActivity() {
 
-    private lateinit var tvNomeSalao: TextView
-    private lateinit var recyclerViewServicos: RecyclerView
-    private lateinit var servicoList: List<Servico>
+    private lateinit var binding: ActivitySelecionarServicoBinding
+    private lateinit var servicoList: MutableList<Servico>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_selecionar_servico)
+        binding = ActivitySelecionarServicoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        tvNomeSalao = findViewById(R.id.tvNomeSalao)
-        recyclerViewServicos = findViewById(R.id.rvListaServicos)
-        recyclerViewServicos.layoutManager = LinearLayoutManager(this)
-
-        // Recebe o nome do salão passado pela Intent
         val nomeSalao = intent.getStringExtra("nomeSalao")
-        tvNomeSalao.text = nomeSalao
+        binding.tvNomeSalao.text = nomeSalao
 
-        // Exemplo de lista de serviços com preço como String e duração como String
-        servicoList = listOf(
-            Servico("Corte de cabelo", "R$ 30,00", "30min", "Corte de cabelo masculino e feminino"),
-            Servico("Manicure", "R$ 20,00", "40min", "Serviço de manicure completo")
-        )
+        servicoList = mutableListOf()
+        binding.rvListaServicos.layoutManager = LinearLayoutManager(this)
 
-        // Adapter inline para RecyclerView
-        val servicoAdapter = object : RecyclerView.Adapter<ServicoViewHolder>() {
-
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServicoViewHolder {
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_servico, parent, false)
-                return ServicoViewHolder(view)
+        val db = Firebase.firestore
+        db.collection("saloes").whereEqualTo("nomeCompleto", nomeSalao).get()
+            .addOnSuccessListener { result ->
+                if (result.documents.isNotEmpty()) {
+                    val salaoDocument = result.documents[0]
+                    db.collection("saloes").document(salaoDocument.id).collection("servicos").get()
+                        .addOnSuccessListener { servicesResult ->
+                            for (document in servicesResult) {
+                                val servico = document.toObject(Servico::class.java)
+                                servicoList.add(servico)
+                            }
+                            val adapter = SelecionarServicoAdapter(servicoList)
+                            binding.rvListaServicos.adapter = adapter
+                        }
+                        .addOnFailureListener { exception ->
+                            Toast.makeText(this, "Erro ao carregar serviços: ${exception.message}", Toast.LENGTH_SHORT).show()
+                        }
+                } else {
+                    Toast.makeText(this, "Salão não encontrado.", Toast.LENGTH_SHORT).show()
+                }
             }
-
-            override fun onBindViewHolder(holder: ServicoViewHolder, position: Int) {
-                val servico = servicoList[position]
-                holder.bind(servico)
+            .addOnFailureListener { exception ->
+                Toast.makeText(this, "Erro ao carregar serviços: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
-
-            override fun getItemCount(): Int = servicoList.size
-        }
-
-        recyclerViewServicos.adapter = servicoAdapter
     }
-
-    // ViewHolder para os itens de serviço
-    inner class ServicoViewHolder(itemView: android.view.View) : RecyclerView.ViewHolder(itemView) {
-        private val tvNomeServico: TextView = itemView.findViewById(R.id.tvNomeServico)
-        private val tvPrecoDuracaoServico: TextView = itemView.findViewById(R.id.tvPrecoDuracaoServico)
-        private val tvDescricaoServico: TextView = itemView.findViewById(R.id.tvDescricaoServico)
-
-        fun bind(servico: Servico) {
-            tvNomeServico.text = servico.nome
-            // Aqui, concatena o preço com a duração
-            tvPrecoDuracaoServico.text = "${servico.preco} - ${servico.duracao}"
-            tvDescricaoServico.text = servico.descricao
-        }
-    }
-
 }

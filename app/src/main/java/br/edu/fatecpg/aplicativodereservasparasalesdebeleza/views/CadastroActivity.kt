@@ -1,5 +1,7 @@
 package br.edu.fatecpg.aplicativodereservasparasalesdebeleza.views
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -7,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.databinding.ActivityCadastroBinding
 import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.dao.Cliente
 import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.dao.Salao
+import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.dao.Servico
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -15,6 +18,7 @@ import com.google.firebase.ktx.Firebase
 class CadastroActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCadastroBinding
     private lateinit var auth: FirebaseAuth
+    private val listaServicos = mutableListOf<Servico>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +32,7 @@ class CadastroActivity : AppCompatActivity() {
         binding.rbSalao.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 binding.etHorarioFuncionamento.visibility = View.VISIBLE
-                binding.edtServico.visibility = View.VISIBLE
+                binding.btnServico.visibility = View.VISIBLE
                 binding.tvEscolhaDias.visibility = View.VISIBLE
                 binding.gridLayoutDiasSemana.visibility = View.VISIBLE
             }
@@ -37,10 +41,16 @@ class CadastroActivity : AppCompatActivity() {
         binding.rbCliente.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 binding.etHorarioFuncionamento.visibility = View.GONE
-                binding.edtServico.visibility = View.GONE
+                binding.btnServico.visibility = View.GONE
                 binding.tvEscolhaDias.visibility = View.GONE
                 binding.gridLayoutDiasSemana.visibility = View.GONE
             }
+        }
+
+        // Configurar botão para abrir NovoServicoActivity
+        binding.btnServico.setOnClickListener {
+            val intent = Intent(this, NovoServicoActivity::class.java)
+            startActivityForResult(intent, REQUEST_CODE_NOVO_SERVICO)
         }
 
         binding.btnEntrar.setOnClickListener {
@@ -65,18 +75,21 @@ class CadastroActivity : AppCompatActivity() {
                             if (binding.cbSabado.isChecked) diasFuncionamento.add("Sábado")
                             if (binding.cbDomingo.isChecked) diasFuncionamento.add("Domingo")
 
-                            val servicos = binding.edtServico.text.toString()
                             val salao = Salao(
                                 email,
                                 nomeCompleto,
                                 horarioFuncionamento,
                                 diasFuncionamento,
-                                servicos,
+                                "", // Campo de serviços vazio já que vai ser salvo separadamente
                                 endereco = null,
                                 nota = null
                             )
                             db.collection("saloes").document(userId).set(salao)
                                 .addOnSuccessListener {
+                                    // Salvar cada serviço na coleção "servicos" vinculada ao salão
+                                    for (servico in listaServicos) {
+                                        db.collection("saloes").document(userId).collection("servicos").add(servico)
+                                    }
                                     Toast.makeText(this, "Cadastro de salão realizado com sucesso!", Toast.LENGTH_SHORT).show()
                                 }
                                 .addOnFailureListener {
@@ -97,7 +110,6 @@ class CadastroActivity : AppCompatActivity() {
                         binding.editEmailCad.text.clear()
                         binding.editSenhaCad.text.clear()
                         binding.etHorarioFuncionamento.text.clear()
-                        binding.edtServico.text.clear()
                         binding.rgTipoUsuario.clearCheck()
                         binding.cbSegunda.isChecked = false
                         binding.cbTerca.isChecked = false
@@ -108,7 +120,7 @@ class CadastroActivity : AppCompatActivity() {
                         binding.cbDomingo.isChecked = false
 
                         binding.etHorarioFuncionamento.visibility = View.GONE
-                        binding.edtServico.visibility = View.GONE
+                        binding.btnServico.visibility = View.GONE
                         binding.tvEscolhaDias.visibility = View.GONE
                         binding.gridLayoutDiasSemana.visibility = View.GONE
                     } else {
@@ -116,5 +128,19 @@ class CadastroActivity : AppCompatActivity() {
                     }
                 }
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_NOVO_SERVICO && resultCode == Activity.RESULT_OK) {
+            val novosServicos = data?.getParcelableArrayListExtra<Servico>("lista_servicos")
+            if (novosServicos != null) {
+                listaServicos.addAll(novosServicos)
+            }
+        }
+    }
+
+    companion object {
+        private const val REQUEST_CODE_NOVO_SERVICO = 1
     }
 }
