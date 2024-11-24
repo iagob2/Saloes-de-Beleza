@@ -7,13 +7,15 @@ data class Servico(
     val nome: String = "",
     val descricao: String = "",
     val preco: String = "",
-    val duracao: String = ""
+    val duracao: String = "",
+    val horarios: List<String> = emptyList() // Novo campo para horários
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readString() ?: "",
-        parcel.readString() ?: ""
+        parcel.readString() ?: "",
+        parcel.createStringArrayList() ?: emptyList()
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -21,6 +23,7 @@ data class Servico(
         parcel.writeString(descricao)
         parcel.writeString(preco)
         parcel.writeString(duracao)
+        parcel.writeStringList(horarios)
     }
 
     override fun describeContents(): Int {

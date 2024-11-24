@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="12dp"
-    android:background="@drawable/selector_item_background"
+    android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true">
 
@@ -14,7 +14,7 @@
         android:id="@+id/tvDia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Segunda-feira"
+        android:text="Dia"
         android:textSize="16sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -25,7 +25,7 @@
         android:id="@+id/tvHorario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="9:00"
+        android:text="Horário"
         android:textSize="16sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -38,7 +38,6 @@
         android:layout_height="wrap_content"
         android:text="Disponível"
         android:textSize="14sp"
-        android:textColor="@color/white"
         android:gravity="center"
         android:layout_weight="1" />
 </LinearLayout>

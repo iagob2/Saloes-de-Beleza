@@ -1,5 +1,6 @@
 package br.edu.fatecpg.aplicativodereservasparasalesdebeleza.views
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -37,7 +38,14 @@ class SelecionarServicoActivity : AppCompatActivity() {
                                 val servico = document.toObject(Servico::class.java)
                                 servicoList.add(servico)
                             }
-                            val adapter = SelecionarServicoAdapter(servicoList)
+                            val adapter = SelecionarServicoAdapter(servicoList) { servico ->
+                                // Ao clicar em um serviço, passa os dados para a SelecionarHorarioActivity
+                                val intent = Intent(this, SelecionarHorarioActivity::class.java).apply {
+                                    putExtra("servico", servico)
+                                    putExtra("nomeSalao", nomeSalao)
+                                }
+                                startActivity(intent)
+                            }
                             binding.rvListaServicos.adapter = adapter
                         }
                         .addOnFailureListener { exception ->

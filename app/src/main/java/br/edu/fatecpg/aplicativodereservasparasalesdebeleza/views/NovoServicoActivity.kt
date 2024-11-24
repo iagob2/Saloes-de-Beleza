@@ -23,9 +23,11 @@ class NovoServicoActivity : AppCompatActivity() {
             val descricao = binding.edtDescricaoServico.text.toString()
             val preco = binding.edtPrecoServico.text.toString()
             val duracao = binding.edtDuracaoServico.text.toString()
+            val horariosText = binding.edtHorariosDisponiveis.text.toString() // Novo campo para horários
 
-            if (nome.isNotEmpty() && descricao.isNotEmpty() && preco.isNotEmpty() && duracao.isNotEmpty()) {
-                val servico = Servico(nome, descricao, preco, duracao)
+            if (nome.isNotEmpty() && descricao.isNotEmpty() && preco.isNotEmpty() && duracao.isNotEmpty() && horariosText.isNotEmpty()) {
+                val horarios = horariosText.split(",").map { it.trim() } // Transforma os horários em uma lista
+                val servico = Servico(nome, descricao, preco, duracao, horarios)
                 servicosList.add(servico)
                 Toast.makeText(this, "Serviço adicionado!", Toast.LENGTH_SHORT).show()
                 // Limpa os campos para adicionar um novo serviço
@@ -33,6 +35,7 @@ class NovoServicoActivity : AppCompatActivity() {
                 binding.edtDescricaoServico.text.clear()
                 binding.edtPrecoServico.text.clear()
                 binding.edtDuracaoServico.text.clear()
+                binding.edtHorariosDisponiveis.text.clear() // Limpa o campo de horários
             } else {
                 Toast.makeText(this, "Todos os campos são obrigatórios", Toast.LENGTH_SHORT).show()
             }
