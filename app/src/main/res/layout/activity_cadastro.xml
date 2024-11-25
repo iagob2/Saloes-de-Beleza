@@ -16,7 +16,7 @@
         <TextView
             android:id="@+id/txt_cadastro"
             style="@style/h1"
-            android:layout_marginTop="15dp"
+
             android:text="@string/text_cadastro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,11 +24,10 @@
 
         <View
             android:id="@+id/containerComponets2"
-            style="@style/containerComponets"
-            android:layout_width="371dp"
-            android:layout_height="615dp"
+            style="@style/containerComponets2"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_cadastro" />
 
@@ -200,7 +199,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/containerComponets2" />
+            app:layout_constraintTop_toBottomOf="@+id/containerComponets2"
+            tools:ignore="TextSizeCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

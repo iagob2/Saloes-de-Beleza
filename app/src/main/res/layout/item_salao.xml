@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="?attr/selectableItemBackground">
+    android:layout_margin="7dp"
+    android:background="@drawable/container_componets">
 
     <TextView
         android:id="@+id/tvNomeSalao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/txt_02"
         android:text="Nome do Salão"
-        android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="#000" />
+        tools:ignore="TextSizeCheck" />
+
+    <!--endereco
 
     <TextView
         android:id="@+id/tvEnderecoSalao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/txt_02"
         android:text="Endereço do Salão"
-        android:textSize="14sp"
-        android:textColor="#555"
-        android:visibility="gone" />
+        tools:ignore="TextSizeCheck" /> -->
 
     <TextView
         android:id="@+id/tvNotaSalao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/txt_02"
         android:text="Nota: 4.5"
-        android:textSize="14sp"
-        android:textColor="#000" />
+        tools:ignore="TextSizeCheck" />
 </LinearLayout>

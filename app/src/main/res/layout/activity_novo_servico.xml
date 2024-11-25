@@ -25,9 +25,7 @@
 
         <View
             android:id="@+id/containerComponets2"
-            style="@style/containerComponets"
-            android:layout_width="371dp"
-            android:layout_height="615dp"
+            style="@style/containerComponets2"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

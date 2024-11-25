@@ -4,71 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".views.SelecionarHorarioActivity">
 
     <!-- Título: Nome do Salão e Serviço -->
+
+    <!-- Resumo do Agendamento -->
+
     <TextView
         android:id="@+id/tvTitulo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
+        style="@style/h1"
+        android:layout_marginTop="15dp"
         android:text="Nome do Salão - Serviço Selecionado"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="23dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Resumo do Agendamento -->
-    <TextView
-        android:id="@+id/tvResumoAgendamento"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="Resumo: Nome do Cliente, R$100,00"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
-
     <!-- Lista de Horários Disponíveis -->
 
     <!-- Botão de Confirmação -->
+
+    <TextView
+        android:id="@+id/tvResumoAgendamento"
+        style="@style/txt_normal"
+        android:text="Resumo: Nome do Cliente, R$100,00"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+        tools:ignore="TextSizeCheck" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHorariosDisponiveis"
         android:layout_width="359dp"
         android:layout_height="480dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:clipToPadding="false"
         android:padding="8dp"
         app:layout_constraintBottom_toTopOf="@id/btnConfirmarAgendamento"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvResumoAgendamento"
-        app:layout_constraintVertical_bias="0.355" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnConfirmarAgendamento"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/primaryColor"
-        android:padding="12dp"
+        style="@style/Button"
         android:text="Confirmar Agendamento"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvHorariosDisponiveis"
+       />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_agenda"
-        android:layout_width="399dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/primaryColor"
+        style="@style/Button"
         android:text="Ver Agenda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvHorariosDisponiveis" />
+        app:layout_constraintTop_toBottomOf="@+id/btnConfirmarAgendamento" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
