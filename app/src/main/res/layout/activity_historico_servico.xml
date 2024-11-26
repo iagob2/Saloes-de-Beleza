@@ -1,46 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    tools:context=".views.GestaoAgendaActivity">
 
-    <!-- Título -->
+    <!-- Título da página -->
     <TextView
-        android:id="@+id/tvTituloHistorico"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Histórico de Serviços do Cliente"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:padding="8dp"
-        android:layout_marginBottom="16dp" />
+        style="@style/h1"
+        android:id="@+id/tvTituloGestaoAgenda"
+        android:text="Gestão de Agenda"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Botão de Filtro (Opcional) -->
-    <Button
-        android:id="@+id/btnFiltro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Filtrar"
-        android:layout_gravity="end"
-        android:layout_marginBottom="8dp"
-        android:visibility="visible" />
-
-    <!-- RecyclerView para a lista de agendamentos -->
+    <!-- RecyclerView para exibir a lista de agendamentos -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHistoricoServicos"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scrollbars="vertical" />
+        style="@style/RecyclerViewStyle"
+        android:layout_width="379dp"
+        android:layout_height="477dp"
+        android:clipToPadding="false"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloGestaoAgenda" />
 
-    <!-- Botão Voltar -->
-    <Button
-        android:id="@+id/btnVoltar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Voltar"
-        android:layout_marginTop="16dp" />
-</LinearLayout>
+    <!-- Botão para editar os horários ou serviços -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnFiltro"
+        style="@style/Button"
+        android:text="Filtro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvHistoricoServicos" />
+
+    <TextView
+        android:id="@+id/txt_voltar"
+        style="@style/txt_normal"
+        android:layout_marginTop="15dp"
+        android:text="@string/Voltar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFiltro"
+        tools:ignore="TextSizeCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

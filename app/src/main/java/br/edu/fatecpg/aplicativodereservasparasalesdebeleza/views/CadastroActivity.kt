@@ -29,6 +29,11 @@ class CadastroActivity : AppCompatActivity() {
         auth = Firebase.auth
         val db = Firebase.firestore
 
+        binding.textView.setOnClickListener {
+            finish()
+
+        }
+
         binding.rbSalao.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 binding.etHorarioFuncionamento.visibility = View.VISIBLE

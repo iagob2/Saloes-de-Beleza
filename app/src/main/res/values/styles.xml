@@ -59,6 +59,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">14dp</item>
+        <item name="android:textStyle">bold</item>
+
 
     </style>
 
@@ -76,6 +78,13 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:layout_marginTop">15dp</item>
+    </style>
+
+    <style name="RecyclerViewStyle">
+        <item name="android:layout_width">382dp</item>
+        <item name="android:layout_height">541dp</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:layout_margin">5dp</item>
     </style>
 
     <style name="estilo_horiario">

@@ -1,46 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="12dp"
-    android:background="?attr/selectableItemBackground">
+    android:background="@drawable/container_componets">
 
-    <!-- Nome do Serviço -->
+    <!-- Nome do Serviço: Exibe o nome do serviço agendado -->
     <TextView
         android:id="@+id/tvNomeServico"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/txt_02"
+        android:layout_marginBottom="4dp"
         android:text="Corte de Cabelo"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="4dp" />
+        tools:ignore="TextSizeCheck" />
 
-    <!-- Data e Hora -->
+    <!-- Data e Hora: Exibe a data e hora do agendamento -->
     <TextView
         android:id="@+id/tvDataHora"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/txt_02"
         android:text="14/11/2024 - 15:00"
-        android:textSize="14sp"
-        android:layout_marginBottom="4dp" />
+        android:layout_marginBottom="4dp"
+        tools:ignore="TextSizeCheck"/>
 
-    <!-- Status e Nome do Salão -->
+    <!-- Status e Nome do Salão: Exibe o status do serviço e o nome do salão -->
     <TextView
         android:id="@+id/tvStatusESalao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/txt_02"
         android:text="Status: Concluído | Salão: Beleza Suprema"
-        android:textSize="14sp"
-        android:layout_marginBottom="4dp" />
+        android:layout_marginBottom="4dp"
+        tools:ignore="TextSizeCheck"/>
 
-    <!-- Valor (Opcional) -->
+    <!-- Valor (Opcional): Exibe o valor do serviço (se disponível) -->
     <TextView
         android:id="@+id/tvValor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/txt_02"
         android:text="R$ 50,00"
-        android:textSize="14sp"
-        android:textColor="@color/primaryColor" />
+        android:textColor="@color/primaryColor"
+        tools:ignore="TextSizeCheck"/>
 </LinearLayout>

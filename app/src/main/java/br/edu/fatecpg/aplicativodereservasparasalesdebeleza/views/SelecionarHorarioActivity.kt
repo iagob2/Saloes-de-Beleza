@@ -56,10 +56,6 @@ class SelecionarHorarioActivity : AppCompatActivity() {
         )
         salvarAgendamento(agenda)
 
-        binding.btnAgenda.setOnClickListener {
-            val intent = Intent(this, HistoricoServicoActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun salvarAgendamento(agenda: Agenda) {

@@ -37,7 +37,6 @@ class SelecaoSaloesAdapter(
 
         fun bind(salao: Salao, onClick: (Salao) -> Unit) {
             binding.tvNomeSalao.text = salao.nomeCompleto
-            binding.tvEnderecoSalao.text = salao.endereco
             binding.tvNotaSalao.text = "Nota: ${salao.nota}"
             binding.root.setOnClickListener {
                 onClick(salao)

@@ -1,5 +1,7 @@
 package br.edu.fatecpg.aplicativodereservasparasalesdebeleza.views
 
+import HistoricoServicoActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +27,11 @@ class SelecaoSaloesActivity : AppCompatActivity() {
 
         // Configura RecyclerView
         binding.recyclerViewSaloes.layoutManager = LinearLayoutManager(this)
+
+        binding.btnAgenda.setOnClickListener {
+            val intent = Intent(this,HistoricoServicoActivity::class.java)
+            startActivity(intent)
+        }
 
         // Busca dados do Firestore
         val db = Firebase.firestore

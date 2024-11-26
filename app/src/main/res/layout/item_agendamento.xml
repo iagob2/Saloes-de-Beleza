@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:background="@drawable/container_componets"
     android:padding="8dp">
 
-    <!-- Nome do Cliente -->
+    <!-- Nome do Cliente: Exibe o nome do cliente agendado -->
     <TextView
         android:id="@+id/tvNomeCliente"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/txt_02"
         android:text="Nome do Cliente"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        tools:ignore="TextSizeCheck" />
 
-    <!--  Data/Hora -->
+    <!-- Data/Hora: Exibe o serviço, data e horário do agendamento -->
     <TextView
         android:id="@+id/tvDataHora"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/txt_02"
         android:text="Serviço - Data e Hora"
-        android:textSize="14sp" />
+        tools:ignore="TextSizeCheck" />
 
-    <!-- Status -->
+    <!-- Status: Exibe o status do serviço agendado (pode ser alterado dinamicamente) -->
     <TextView
         android:id="@+id/tvServiço"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/txt_02"
         android:text="Serviço: fique sem ideia"
-        android:textSize="14sp"
-        android:textColor="@color/primaryColor" />
+        tools:ignore="TextSizeCheck"
+        android:textColor="@color/primaryColor"/>
 </LinearLayout>

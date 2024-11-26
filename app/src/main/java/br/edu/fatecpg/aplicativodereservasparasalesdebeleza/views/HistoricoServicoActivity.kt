@@ -31,7 +31,7 @@ class HistoricoServicoActivity : AppCompatActivity() {
 
         loadHistorico()
 
-        binding.btnVoltar.setOnClickListener {
+        binding.txtVoltar.setOnClickListener {
             val intent = Intent(this, ActivitySelecionarServicoBinding::class.java)
             startActivity(intent)
             finish()

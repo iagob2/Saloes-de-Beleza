@@ -9,10 +9,7 @@
     android:background= "@drawable/background"
     tools:ignore="ExtraText">
 
-    <!-- Botão Voltar -->
-
-    <!-- Título da Tela -->
-
+    <!-- Logo do app -->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="79dp"
@@ -24,8 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- RecyclerView para lista de salões -->
-
+    <!-- Título -->
     <TextView
         android:id="@+id/tvTitulo"
         style="@style/h1"
@@ -39,16 +35,24 @@
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Lista de salões -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSaloes"
-        android:layout_width="367dp"
-        android:layout_height="614dp"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/RecyclerViewStyle"
+        android:clipToPadding="false"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
-        app:layout_constraintVertical_bias="0.483" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
+
+    <!-- Botão para ver a agenda -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_agenda"
+        style="@style/Button"
+        android:text="Ver Agenda e histórico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewSaloes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,20 +11,19 @@
     android:padding="12dp"
     tools:ignore="TouchTargetSizeCheck">
 
-    <!-- Dia -->
+    <!-- Dia: Exibe o dia da disponibilidade -->
     <TextView
         android:id="@+id/tvDia"
         style="@style/estilo_horiario"
         android:text="Dia" />
 
-    <!-- Horário -->
+    <!-- Horário: Exibe o horário da disponibilidade -->
     <TextView
         android:id="@+id/tvHorario"
         style="@style/estilo_horiario"
-
         android:text="Horário" />
 
-    <!-- Disponibilidade -->
+    <!-- Disponibilidade: Exibe a disponibilidade do horário (ex: "Disponível") -->
     <TextView
         android:id="@+id/tvDisponibilidade"
         style="@style/estilo_horiario"

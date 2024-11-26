@@ -8,6 +8,7 @@
     android:layout_margin="7dp"
     android:background="@drawable/container_componets">
 
+    <!-- Nome do Salão: Exibe o nome do salão, em estilo negrito -->
     <TextView
         android:id="@+id/tvNomeSalao"
         style="@style/txt_02"
@@ -15,14 +16,16 @@
         android:textStyle="bold"
         tools:ignore="TextSizeCheck" />
 
-    <!--endereco
-
+    <!-- Endereço do Salão: Comentado no momento, mas pode ser usado para exibir o endereço do salão -->
+    <!--
     <TextView
         android:id="@+id/tvEnderecoSalao"
         style="@style/txt_02"
         android:text="Endereço do Salão"
-        tools:ignore="TextSizeCheck" /> -->
+        tools:ignore="TextSizeCheck" />
+    -->
 
+    <!-- Nota do Salão: Exibe a nota do salão (por exemplo, 4.5 estrelas) -->
     <TextView
         android:id="@+id/tvNotaSalao"
         style="@style/txt_02"
