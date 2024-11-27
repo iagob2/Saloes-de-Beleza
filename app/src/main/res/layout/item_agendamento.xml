@@ -2,12 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="10dp"
-    android:background="@drawable/container_componets"
-    android:padding="8dp">
+    style="@style/itemR"
+    >
 
     <!-- Nome do Cliente: Exibe o nome do cliente agendado -->
     <TextView
@@ -29,5 +25,5 @@
         style="@style/txt_02"
         android:text="Serviço: fique sem ideia"
         tools:ignore="TextSizeCheck"
-        android:textColor="@color/primaryColor"/>
+       />
 </LinearLayout>
