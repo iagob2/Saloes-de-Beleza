@@ -1,6 +1,5 @@
 package br.edu.fatecpg.aplicativodereservasparasalesdebeleza.views
 
-import HistoricoServicoActivity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -12,6 +11,7 @@ import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.dao.Cliente
 import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.dao.Salao
 import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.dao.Servico
 import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.databinding.ActivitySelecionarHorarioBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -32,7 +32,6 @@ class SelecionarHorarioActivity : AppCompatActivity() {
             binding.tvTitulo.text = "$nomeSalao - ${servico.nome}"
             binding.tvResumoAgendamento.text = "Resumo: ${Firebase.auth.currentUser?.email}, ${servico.preco}"
 
-
             val horariosDisponiveis = servico.horarios.map { "" to it }
 
             val horarioAdapter = HorarioAdapter(horariosDisponiveis) { (_, horario) ->
@@ -51,22 +50,27 @@ class SelecionarHorarioActivity : AppCompatActivity() {
         val agenda = Agenda(
             dataHora = dataHora,
             cliente = Cliente(Firebase.auth.currentUser?.email ?: "", ""),
-            salao = Salao("", nomeSalao, "", emptyList(), "", null, null),
+            salao = Salao(nomeSalao, "", "", emptyList(), "", null, null),
             servico = servico
         )
         salvarAgendamento(agenda)
-
     }
 
     private fun salvarAgendamento(agenda: Agenda) {
-        val db = Firebase.firestore
-        db.collection("agendamentos").add(agenda)
-            .addOnSuccessListener {
-                Toast.makeText(this, "Agendamento realizado com sucesso!", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener { exception ->
-                Toast.makeText(this, "Erro ao salvar agendamento: ${exception.message}", Toast.LENGTH_SHORT).show()
-            }
-    }
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        if (userId != null) {
+            val db = Firebase.firestore
+            val clienteRef = db.collection("cliente").document(userId)
 
+            clienteRef.collection("agendamentos").add(agenda)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Agendamento realizado com sucesso!", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Erro ao salvar agendamento: ${exception.message}", Toast.LENGTH_SHORT).show()
+                }
+        } else {
+            Toast.makeText(this, "Usuário não está logado", Toast.LENGTH_SHORT).show()
+        }
+    }
 }

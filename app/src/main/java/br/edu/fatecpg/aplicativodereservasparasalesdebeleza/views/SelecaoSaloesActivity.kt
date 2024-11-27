@@ -1,6 +1,5 @@
 package br.edu.fatecpg.aplicativodereservasparasalesdebeleza.views
 
-import HistoricoServicoActivity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast

@@ -2,17 +2,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.databinding.ItemHistoricoBinding
-import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.models.HistoricoServico
+import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.dao.Agenda
 
-class HistoricoAdapter(private val historicoList: MutableList<HistoricoServico>) :
+class HistoricoAdapter(private val historicoList: MutableList<Agenda>) :
     RecyclerView.Adapter<HistoricoAdapter.HistoricoViewHolder>() {
-
 
     inner class HistoricoViewHolder(val binding: ItemHistoricoBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoricoViewHolder {
-
         val binding = ItemHistoricoBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
@@ -22,25 +20,23 @@ class HistoricoAdapter(private val historicoList: MutableList<HistoricoServico>)
     }
 
     override fun onBindViewHolder(holder: HistoricoViewHolder, position: Int) {
-        
         val item = historicoList[position]
         with(holder.binding) {
-            tvNomeServico.text = item.nomeServico
-            tvDataHora.text = item.dataHora
-            tvStatusESalao.text = "Status: ${item.status} | Salão: ${item.salao}"
-            tvValor.text = item.valor
+            tvNomeServico.text = item.servico.nome
+            tvDataHora.text = item.dataHora.toString()
+            tvStatusESalao.text = "Salão: ${item.salao.nomeCompleto}"
+            tvValor.text = item.servico.preco
         }
     }
 
     override fun getItemCount(): Int = historicoList.size
 
-
-    fun addItem(historico: HistoricoServico) {
-        historicoList.add(historico)
+    fun addItem(agenda: Agenda) {
+        historicoList.add(agenda)
         notifyItemInserted(historicoList.size - 1)
     }
 
-    fun updateList(newList: List<HistoricoServico>) {
+    fun updateList(newList: List<Agenda>) {
         historicoList.clear()
         historicoList.addAll(newList)
         notifyDataSetChanged()
