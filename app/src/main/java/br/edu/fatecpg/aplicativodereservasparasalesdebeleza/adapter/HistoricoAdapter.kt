@@ -3,6 +3,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.databinding.ItemHistoricoBinding
 import br.edu.fatecpg.aplicativodereservasparasalesdebeleza.dao.Agenda
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class HistoricoAdapter(private val historicoList: MutableList<Agenda>) :
     RecyclerView.Adapter<HistoricoAdapter.HistoricoViewHolder>() {
@@ -23,9 +25,10 @@ class HistoricoAdapter(private val historicoList: MutableList<Agenda>) :
         val item = historicoList[position]
         with(holder.binding) {
             tvNomeServico.text = item.servico.nome
-            tvDataHora.text = item.dataHora.toString()
-            tvStatusESalao.text = "Salão: ${item.salao.nomeCompleto}"
-            tvValor.text = item.servico.preco
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+            tvDataHora.text = item.dataHora?.let { dateFormat.format(it) } ?: "Data inválida"
+            tvStatusESalao.text = "Salão: ${item.salao.nome}"
+            tvValor.text = "R$ ${item.servico.preco}" // Converte o Double para String
         }
     }
 

@@ -24,7 +24,7 @@ class SelecaoSaloesAdapter(
         holder.bind(salao) {
             // Ao clicar em um item da lista, redireciona para a seleção de serviço
             val intent = Intent(context, SelecionarServicoActivity::class.java).apply {
-                putExtra("nomeSalao", salao.nomeCompleto)
+                putExtra("nomeSalao", salao.nome)
             }
             context.startActivity(intent)
         }
@@ -36,7 +36,7 @@ class SelecaoSaloesAdapter(
     inner class SalaoViewHolder(private val binding: ItemSalaoBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(salao: Salao, onClick: (Salao) -> Unit) {
-            binding.tvNomeSalao.text = salao.nomeCompleto
+            binding.tvNomeSalao.text = salao.nome
             binding.tvNotaSalao.text = "Nota: ${salao.nota}"
             binding.root.setOnClickListener {
                 onClick(salao)

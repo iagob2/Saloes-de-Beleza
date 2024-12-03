@@ -21,21 +21,26 @@ class NovoServicoActivity : AppCompatActivity() {
         binding.btnCadastrarServico.setOnClickListener {
             val nome = binding.edtNomeServico.text.toString()
             val descricao = binding.edtDescricaoServico.text.toString()
-            val preco = binding.edtPrecoServico.text.toString()
+            val precoText = binding.edtPrecoServico.text.toString()
             val duracao = binding.edtDuracaoServico.text.toString()
-            val horariosText = binding.edtHorariosDisponiveis.text.toString() // Novo campo para horários
+            val horariosText = binding.edtHorariosDisponiveis.text.toString()
 
-            if (nome.isNotEmpty() && descricao.isNotEmpty() && preco.isNotEmpty() && duracao.isNotEmpty() && horariosText.isNotEmpty()) {
-                val horarios = horariosText.split(",").map { it.trim() } // Transforma os horários em uma lista
-                val servico = Servico(nome, descricao, preco, duracao, horarios)
-                servicosList.add(servico)
-                Toast.makeText(this, "Serviço adicionado!", Toast.LENGTH_SHORT).show()
-                // Limpa os campos para adicionar um novo serviço
-                binding.edtNomeServico.text.clear()
-                binding.edtDescricaoServico.text.clear()
-                binding.edtPrecoServico.text.clear()
-                binding.edtDuracaoServico.text.clear()
-                binding.edtHorariosDisponiveis.text.clear() // Limpa o campo de horários
+            if (nome.isNotEmpty() && descricao.isNotEmpty() && precoText.isNotEmpty() && duracao.isNotEmpty() && horariosText.isNotEmpty()) {
+                val preco = precoText.toDoubleOrNull()
+                if (preco != null) {
+                    val horarios = horariosText.split(",").map { it.trim() }
+                    val servico = Servico(nome, descricao, preco, duracao, horarios)
+                    servicosList.add(servico)
+                    Toast.makeText(this, "Serviço adicionado!", Toast.LENGTH_SHORT).show()
+
+                    binding.edtNomeServico.text.clear()
+                    binding.edtDescricaoServico.text.clear()
+                    binding.edtPrecoServico.text.clear()
+                    binding.edtDuracaoServico.text.clear()
+                    binding.edtHorariosDisponiveis.text.clear()
+                } else {
+                    Toast.makeText(this, "Preço inválido. Deve ser um número.", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(this, "Todos os campos são obrigatórios", Toast.LENGTH_SHORT).show()
             }

@@ -21,7 +21,7 @@
 
     <!-- Status: Exibe o status do serviço agendado (pode ser alterado dinamicamente) -->
     <TextView
-        android:id="@+id/tvServiço"
+        android:id="@+id/tvServico"
         style="@style/txt_02"
         android:text="Serviço: fique sem ideia"
         tools:ignore="TextSizeCheck"

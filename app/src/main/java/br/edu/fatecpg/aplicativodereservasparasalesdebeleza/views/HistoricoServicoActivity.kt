@@ -49,7 +49,7 @@ class HistoricoServicoActivity : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { result ->
                     val newList = result.map { it.toObject(Agenda::class.java) }
-                    historicoAdapter.updateList(newList) // Atualizar lista no adapter com os agendamentos
+                    historicoAdapter.updateList(newList)
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(this, "Erro ao carregar agendamentos: ${e.message}", Toast.LENGTH_SHORT).show()

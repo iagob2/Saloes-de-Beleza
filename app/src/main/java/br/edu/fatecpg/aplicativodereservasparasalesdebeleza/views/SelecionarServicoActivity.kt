@@ -28,7 +28,7 @@ class SelecionarServicoActivity : AppCompatActivity() {
         binding.rvListaServicos.layoutManager = LinearLayoutManager(this)
 
         val db = Firebase.firestore
-        db.collection("saloes").whereEqualTo("nomeCompleto", nomeSalao).get()
+        db.collection("saloes").whereEqualTo("nome", nomeSalao).get()
             .addOnSuccessListener { result ->
                 if (result.documents.isNotEmpty()) {
                     val salaoDocument = result.documents[0]
@@ -43,6 +43,7 @@ class SelecionarServicoActivity : AppCompatActivity() {
                                 val intent = Intent(this, SelecionarHorarioActivity::class.java).apply {
                                     putExtra("servico", servico)
                                     putExtra("nomeSalao", nomeSalao)
+                                    putExtra("salaoId", salaoDocument.id) // Adiciona o ID do salão
                                 }
                                 startActivity(intent)
                             }
